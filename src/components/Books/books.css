@@ -1,0 +1,93 @@
+.Testimonials{
+    margin: 80px auto;
+    padding: 0 80px;
+    position: relative;
+    width: auto;
+    contain: content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.next-btn, .back-btn{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 15px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #4d7896;
+}
+.back-btn{
+    right: auto;
+    left: 0;
+}
+
+.slider{
+    overflow: hidden;
+}
+.slider ul{
+    display: flex;
+    width: 200%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    
+}
+.slider ul li{
+    list-style: none;
+    width: 50%;
+    padding: 20px;
+    height: 800px;
+}
+.slide{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+    color: #676767;
+    line-height: 1.4; 
+    background: #000;
+}
+.slider ul li img{
+    height: 600px;
+}
+.book-info{
+    
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+@media (max-width: 800px){
+    .Testimonials{
+        padding: 0 40px;
+    }
+    .next-btn, .back-btn{
+        padding: 10px;
+        width: 35px;
+    }
+    .Testimonials ul li{
+        padding: 10px;
+    }
+    .slide{
+        padding: 10px;
+    }
+    .slide img{
+        width: 50px;
+    }
+}
+@media (max-width: 600px){
+    .book-info{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    .book-info h3{
+        font-size: 16px;
+
+    }
+    .slider p{
+        font-size: 12px;
+    }
+}

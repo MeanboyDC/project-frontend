@@ -1,0 +1,8 @@
+.hero{
+    width: 100%;
+    min-width: 100vh;
+    background: linear-gradient(rgba(8,0,58,0.7), rgba(8,0,58,0.7)), url('../assets/Stockholm-Public-Library-Alamy.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
