@@ -10,6 +10,7 @@ import BooksTable from './home/BooksTable'
 import Footer from './Footer/Footer';
 import Navbar2 from './navbar2'
 import './navbar.css'
+import BorrowedBook from './BorrowedBook'
 
 import R from '../assets/R.png';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -70,6 +71,16 @@ const Home = () => {
     {
         loading ? <Spinner/>: showType === "table" ? (<BooksTable books={books}/>) : (<BooksCard books={books}/>)           
     }
+
+
+
+
+   
+   
+
+
+
+    
     <div className=' fixed bottom-0 w-full'>
         <Footer/>
     </div>
