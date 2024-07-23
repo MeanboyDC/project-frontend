@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f75efb70.css",
+    "main.js": "/static/js/main.85308bc2.js",
+    "static/js/453.7ab5c91e.chunk.js": "/static/js/453.7ab5c91e.chunk.js",
+    "static/media/R.png": "/static/media/R.930fadd4cdb6d839353d.png",
+    "static/media/Stockholm-Public-Library-Alamy.png": "/static/media/Stockholm-Public-Library-Alamy.fa927d15101959758865.png",
+    "static/media/cover4.jpeg": "/static/media/cover4.a7684e1c84be6c9b8e35.jpeg",
+    "static/media/cover1.jpeg": "/static/media/cover1.95236cba3f4ebcf35018.jpeg",
+    "static/media/cover2.jpeg": "/static/media/cover2.d0c6f30ba5777acde2ad.jpeg",
+    "static/media/cover3.jpeg": "/static/media/cover3.581a00a4813b468e657b.jpeg",
+    "index.html": "/index.html",
+    "main.f75efb70.css.map": "/static/css/main.f75efb70.css.map",
+    "main.85308bc2.js.map": "/static/js/main.85308bc2.js.map",
+    "453.7ab5c91e.chunk.js.map": "/static/js/453.7ab5c91e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f75efb70.css",
+    "static/js/main.85308bc2.js"
+  ]
+}
