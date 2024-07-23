@@ -21,7 +21,7 @@ const Adminhome = () => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false)
     const [showType, setShowType] = useState('table')
-    // const [showCard, setShowCard] = useState('card')
+    
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const geturl = process.env.REACT_APP_GET_BOOK

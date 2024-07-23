@@ -14,10 +14,7 @@ const BorrowedBook = ({ books }) => {
   
   const token = localStorage.getItem('token');
   const geturl = process.env.REACT_APP_GET_BOOK
-  // if (!token) {
-  //   toast.error('Authorization required');
-  //   return null;
-  // }
+  
   
   const headers = {
     Authorization: `Bearer ${token}`
@@ -74,59 +71,14 @@ const BorrowedBook = ({ books }) => {
                     className='text-2xl text-red-600 hover:text-black cursor-pointer'
                     onClick={() => setDeleteBook(book._id)}
                   />
-                  {/* <div>
-                  <FormGroup>
-      <FormControlLabel control={<Checkbox  />} onChange={()=>{bookchecked(book)}} label="Borrow All" />
-        </FormGroup>
-                  </div> */}
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* <button onClick={selectBook} varient='outlined' >Borrow Books</button> */}
-      
-      {/* <div className='flex justify-between items-center mt-10'>
-        <h1 className='text-3xl my-8 '>BORROWED BOOK LIST</h1>
-        
-    </div>
-    <table className='w-full border-separate border-spacing-'>
-        <thead>
-          <tr>
-            <th className='border border-slate-600 rounded-md'>No</th>
-            <th className='border border-slate-600 rounded-md'>Title</th>
-            <th className='border border-slate-600 rounded-md max-md:hidden'>Author</th>
-            <th className='border border-slate-600 rounded-md max-md:hidden'>Published Year</th>
-            <th className='border border-slate-600 rounded-md'>Operations</th>
-          </tr>
-        </thead>
-        <tbody>
-          {br.map((bk, index) => (
-            <tr key={bk._id} className='h-8'>
-              <td className='border border-slate-700 rounded-md text-center'>{index + 1}</td>
-              <td className='border border-slate-700 rounded-md text-center'>{bk.title}</td>
-              <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.author}</td>
-              <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.publishedYear}</td>
-              <td className='border border-slate-700 rounded-md text-center'>
-                <div className='flex justify-center gap-x-4'>
-                  <Link to={`/book/details/${bk._id}`}>
-                    <BsInfoCircle className='text-2xl text-green-800' />
-                  </Link>
-                  <Link to={`/book/edit/${bk._id}`}>
-                    <AiOutlineEdit className='text-2xl text-yellow-400' />
-                  </Link>
-                  <MdOutlineDelete
-                    className='text-2xl text-red-600 hover:text-black cursor-pointer'
-                    onClick={() => setDeleteBook(bk._id)}
-                  />
                   
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
-      </table> */}
+      </table>
+      
 
 
 

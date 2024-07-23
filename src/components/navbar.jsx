@@ -18,9 +18,7 @@ const navbar = () =>{
     <nav id='container'>
         <img src={R} alt='' className='logo'/>
         <ul>
-            {/* <li 
-            className='text-lg hover:text-black rounded-sm'>
-            <Link to='/login' onClick={()=>setLogin(true)}>LOGIN</Link></li> */}
+            
             <li><LoginIcon className='text-black hover:text-black text-3xl' onClick={()=>setLogin(true)}/></li>
             <li className='text-6xl hover:text-black ' ><HowToRegIcon onClick={()=>setRegister(true)}/></li>
         </ul>

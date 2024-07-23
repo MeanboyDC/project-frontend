@@ -23,10 +23,7 @@ const EditBook = () => {
     setLoading(true)
     axios.get(`${geturl}/${id}`)
     .then((res)=>{
-      // setTitle(res.data.title)
-      // setAuthor(res.data.author)
-      // setPublishedYear(res.data.publishedYear)
-     setEditedBook(res.data)
+      setEditedBook(res.data)
      setLoading(false)
     })
     .catch((error)=>{

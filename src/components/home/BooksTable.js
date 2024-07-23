@@ -26,10 +26,7 @@ const BooksTable = ({ books }) => {
   const geturl = process.env.REACT_APP_GET_BOOK
   const surl = process.env.REACT_APP_SELECT_URL;
   
-  // if (!token) {
-  //   toast.error('Authorization required');
-  //   return null;
-  // }
+  
   
   const headers = {
     Authorization: `Bearer ${token}`
@@ -115,13 +112,7 @@ const BooksTable = ({ books }) => {
                   <Link to={`/book/details/${book._id}`}>
                     <BsInfoCircle className='text-2xl text-green-800' />
                   </Link>
-                  {/* <Link to={`/book/edit/${book._id}`}>
-                    <AiOutlineEdit className='text-2xl text-yellow-400' />
-                  </Link>
-                  <MdOutlineDelete
-                    className='text-2xl text-red-600 hover:text-black cursor-pointer'
-                    onClick={() => setDeleteBook(book._id)}
-                  /> */}
+                  
                   <div>
                   <FormGroup>
       <FormControlLabel control={<Checkbox  />} onChange={()=>{bookchecked(book)}} label="" />
@@ -160,7 +151,7 @@ const BooksTable = ({ books }) => {
             <th className='border border-slate-600 rounded-md'>Title</th>
             <th className='border border-slate-600 rounded-md max-md:hidden'>Author</th>
             <th className='border border-slate-600 rounded-md max-md:hidden'>Published Year</th>
-            {/* <th className='border border-slate-600 rounded-md'>Operations</th> */}
+            
           </tr>
         </thead>
         <tbody>
@@ -170,21 +161,7 @@ const BooksTable = ({ books }) => {
               <td className='border border-slate-700 rounded-md text-center'>{bk.title}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.author}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.publishedYear}</td>
-              {/* <td className='border border-slate-700 rounded-md text-center'>
-                <div className='flex justify-center gap-x-4'>
-                  <Link to={`/book/details/${bk._id}`}>
-                    <BsInfoCircle className='text-2xl text-green-800' />
-                  </Link>
-                  <Link to={`/book/edit/${bk._id}`}>
-                    <AiOutlineEdit className='text-2xl text-yellow-400' />
-                  </Link>
-                  <MdOutlineDelete
-                    className='text-2xl text-red-600 hover:text-black cursor-pointer'
-                    onClick={() => setDeleteBook(bk._id)}
-                  />
-                  
-                </div>
-              </td> */}
+              
             </tr>
           ))}
         </tbody>

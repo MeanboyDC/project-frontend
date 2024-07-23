@@ -44,7 +44,7 @@ export default function SignIn({onClose}) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // const rfrsh = new FormData(event.currentTarget);
+    
   const authurl = process.env.REACT_APP_AUTH_API
      
 const data = {

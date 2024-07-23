@@ -25,7 +25,7 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [showType, setShowType] = useState('table')
     const [load, setLoad] = useState([])
-    // const [showCard, setShowCard] = useState('card')
+    
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const surl = process.env.REACT_APP_SELECT_URL;
@@ -43,7 +43,7 @@ const Home = () => {
         setLoading(true)
         Axios.get(`${surl}/select`, {headers})
         .then((res)=>{
-            // const a = res.data.data.books
+            
             const booksArrays = res.data.data;
             let combinedArray = [];
             combinedArray = combinedArray.concat(booksArrays)
@@ -54,27 +54,7 @@ const Home = () => {
             
             setBooks(combinedArray)
 
-  // Iterate through each array of books
-            // booksArrays.forEach((booksArray, index) => {
-            // // console.log(`Books Array ${index + 1}:`, booksArray);
-            // })
-            // booksArrays.map((booksArray, index) =>{
-            //     // console.log(`Books:`, booksArray.books);
-            //     const kk = (`Books:`, booksArray.books)
-            //     let combinedArray = [];
-
-            //     kk.forEach(books => {
-            //         // Concatenate the current array with the combinedArray
-            //         combinedArray = combinedArray.concat(booksArrays);
-            //         // Alternatively, you can use the spread operator:
-            //         // combinedArray = [...combinedArray, ...array];
-            //       });
-            
-            //     //   return combinedArray;
-                
-            //     //   setBooks(combinedArray)
-            //       console.log(combinedArray, 'com')
-            // })
+  
             
            
             
