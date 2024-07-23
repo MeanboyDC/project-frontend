@@ -1,18 +1,17 @@
-import React from 'react'
+import React, {useState, usestate} from 'react'
 import './navbar.css'
 import Login from './authcomponent/Login'
 import Signup from './authcomponent/Signup'
-import { useState} from 'react'
-
 import R from '../assets/R.png';
 import { Link } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
+
 const navbar = () =>{
   
-  const [login, setLogin] = useState(false)
-  const [register, setRegister] = useState(false)
+  const [login, setLogin] =  useState;
+  const [register, setRegister] = useState
 
   return (
     <nav id='container'>
