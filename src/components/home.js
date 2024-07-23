@@ -10,10 +10,11 @@ import BooksTable from './home/BooksTable'
 import Footer from './Footer/Footer';
 import Navbar2 from './navbar2'
 import './navbar.css'
-import BorrowedBook from './BorrowedBook'
+import BorrowedBook from './home/BorrowedBook'
 
 import R from '../assets/R.png';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
@@ -22,12 +23,15 @@ const Home = () => {
     const [showType, setShowType] = useState('table')
     // const [showCard, setShowCard] = useState('card')
     const token = localStorage.getItem('token')
+    const navigate = useNavigate()
+    const geturl = process.env.REACT_APP_GET_BOOK
 
     useEffect(()=>{
         setLoading(true)
-        Axios.get("http://localhost:3001/api/book")
+        Axios.get(`${geturl}`)
         .then((res)=>{
             setBooks(res.data.data)
+            
              setLoading(false)
         }).catch((error)=>{
             console.log(error)
@@ -36,8 +40,10 @@ const Home = () => {
     }, [])
     const handleLogout = ()=>{
         localStorage.removeItem('token');
-        Navigate('/')
-    }
+        setTimeout(()=>{
+            navigate('/')
+          }, 1000)
+            }
   return (
     <div className='p-4'>
         <nav id='container'>
@@ -63,9 +69,9 @@ const Home = () => {
         <br></br>
     <div className='flex justify-between items-center'>
         <h1 className='text-3xl my-8 '>BOOK LIST</h1>
-        <Link to='/book/create'>
+        {/* <Link to='/book/create'>
         <MdOutlineAddBox className='text-sky-800 text-4xl'/>
-        </Link>
+        </Link> */}
         
     </div>
     {

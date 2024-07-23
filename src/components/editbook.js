@@ -17,11 +17,11 @@ const EditBook = () => {
   const [Editedbook, setEditedBook] = useState ([])
 
   const navigate = useNavigate()
-  const bookurl = process.env.REACT_APP_API_URL
+  const geturl = process.env.REACT_APP_GET_BOOK
 
   useEffect(()=>{
     setLoading(true)
-    axios.get(`http://localhost:3001/api/book/${id}`)
+    axios.get(`${geturl}/${id}`)
     .then((res)=>{
       // setTitle(res.data.title)
       // setAuthor(res.data.author)
@@ -49,12 +49,12 @@ const EditBook = () => {
     } 
     setLoading(true)
 
-    axios.put(`http://localhost:3001/api/book/${id}`, data)
+    axios.put(`${geturl}/${id}`, data)
     .then(()=>{
       setLoading(false)
       toast.success("Book Updated Successfully")
       setTimeout(()=>{
-        navigate('/Home') 
+        navigate('/admin') 
       }, 2000)
        
     }).catch((error)=>{

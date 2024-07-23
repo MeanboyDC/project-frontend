@@ -6,21 +6,25 @@ import Spinner from './elements/Spinner'
 import BackButton from './elements/BackButton'
 
 
+
+
 const ShowBooks = () => {
 
     const [book, setBook] = useState({})
     const [loading, setLoading] = useState(false)
     const {id} = useParams();
+    const geturl = process.env.REACT_APP_GET_BOOK
 
+    
         useEffect(()=>{
             setLoading(true)
-            axios.get(`http://localhost:3001/api/book/${id}`)
+            axios.get(`${geturl}/${id}`)
             .then((response)=>{
                 setBook(response.data)
                 setLoading(false)
             }) 
             .catch((error)=>{
-                console.log(error)
+                
                 setLoading(false)
             })
         }, [])
@@ -33,13 +37,13 @@ const ShowBooks = () => {
                 <Spinner/>
             ):(
                 <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-                <div className='my-4'>
+                {/* <div className='my-4'>
                 <span className='text-xl mr-4 text-gray-500'>
                     Id:</span>
                 <span>
                 {book._id}
                 </span>
-                </div>
+                </div> */}
                 <div className='my-4'>
                 <span className='text-xl mr-4 text-gray-500'>
                     Title:</span>
@@ -61,7 +65,7 @@ const ShowBooks = () => {
                 {book.publishedYear}
                 </span>
                 </div>
-                <div className='my-4'>
+                {/* <div className='my-4'>
                 <span className='text-xl mr-4 text-gray-500'>
                     Created:</span>
                 <span>
@@ -76,7 +80,7 @@ const ShowBooks = () => {
                 
                 </span>
                
-                </div>
+                </div> */}
                 
                 </div>
             )

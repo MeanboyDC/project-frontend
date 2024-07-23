@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from './components/navbar'
 import Hero from './components/Hero'
-import Books from './components/Books/books'
+import Books from './components/Books/books.jsx'
 import Footer from './components/Footer/Footer'
 const Homepage = () => {
   return (

@@ -61,7 +61,7 @@ export default function SignUp({onClose}) {
         password: password
 
       }
-    axios.post('http://localhost:3001/auth/book/register', data)
+    axios.post(`${authurl}/register`, data)
     .then(()=>{
         toast.success('User signup successfully')
         setTimeout(()=>{

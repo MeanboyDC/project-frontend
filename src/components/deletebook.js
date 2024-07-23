@@ -11,17 +11,17 @@ const DeleteBook = ({onClose}) => {
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
   const navigate = useNavigate()
-  const bookurl = process.env.REACT_APP_API_URL
+  const geturl = process.env.REACT_APP_GET_BOOK
 
 
   const handleDelete = () =>{
     setLoading(true)
-    axios.delete(`http://localhost:3001/api/book/${id}`)
+    axios.delete(`${geturl}/${id}`)
     .then(()=>{
       setLoading(false)
       toast.success('Deleted Successfully')
       setTimeout(()=>{
-        navigate('/Home')
+        navigate('/admin')
       }, 2000)
     }).catch((error)=>{
       toast.error("Error", error)

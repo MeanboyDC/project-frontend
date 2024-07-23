@@ -6,26 +6,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { useNavigate } from 'react-router-dom'
-import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 
-const BooksTable = ({ books }) => {
+
+const BorrowedBook = ({ books }) => {
   
   const [booksData, setBooksData] = useState(books);
   
-  const [br, setBr] = useState([])
   const token = localStorage.getItem('token');
-  const navigate = useNavigate()
   const geturl = process.env.REACT_APP_GET_BOOK
-  const surl = process.env.REACT_APP_SELECT_URL;
-  
   // if (!token) {
   //   toast.error('Authorization required');
   //   return null;
@@ -48,43 +36,7 @@ const BooksTable = ({ books }) => {
       });
   };
   
-  const bookchecked = (book) => {
-    setBr(prevState =>{
 
-      // if the boook is already checked, remove it 
-      if(prevState.some(b =>b._id === book._id)){
-
-        return prevState.filter(b =>b._id !== book._id);
-      }else{
-
-        // if the book is not checked
-        return[...prevState, book, ]
-      }
-    });
-    
-
-  }
-  useEffect(()=>{
-    
-  }, [br])
-
-  const selectBook = () => {
-    
-    
-    
-    
-    axios
-    .post(`${surl}/select`, br, { headers })
-    .then(() => {
-      toast.success('Selected Successfully');
-      setTimeout(()=>{
-        navigate('/books')
-      }, 3000)
-    })
-    .catch((error) => {
-      toast.error('Server error', error);
-    });
-  };
 
   
  
@@ -111,45 +63,31 @@ const BooksTable = ({ books }) => {
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{book.author}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{book.publishedYear}</td>
               <td className='border border-slate-700 rounded-md text-center'>
-                <div className='flex justify-center gap-x-4 items-center'>
+                <div className='flex justify-center gap-x-4'>
                   <Link to={`/book/details/${book._id}`}>
                     <BsInfoCircle className='text-2xl text-green-800' />
                   </Link>
-                  {/* <Link to={`/book/edit/${book._id}`}>
+                  <Link to={`/book/edit/${book._id}`}>
                     <AiOutlineEdit className='text-2xl text-yellow-400' />
                   </Link>
                   <MdOutlineDelete
                     className='text-2xl text-red-600 hover:text-black cursor-pointer'
                     onClick={() => setDeleteBook(book._id)}
-                  /> */}
-                  <div>
+                  />
+                  {/* <div>
                   <FormGroup>
-      <FormControlLabel control={<Checkbox  />} onChange={()=>{bookchecked(book)}} label="" />
+      <FormControlLabel control={<Checkbox  />} onChange={()=>{bookchecked(book)}} label="Borrow All" />
         </FormGroup>
-                  </div>
+                  </div> */}
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className='flex flex-row w-full'>
-      <Button onClick={selectBook} variant="contained" endIcon={<SendIcon />}>
-        Borrow Books
-      </Button>
-
-      <div className='float-right '>
-      <Link to='/books'>
-      <Button   variant="outlined" startIcon={<MenuBookIcon />}>
-        View Books
-      </Button>
-      </Link>
-      </div>
-      </div>
+      {/* <button onClick={selectBook} varient='outlined' >Borrow Books</button> */}
       
-      <br></br>
-      	
-      <div className='flex justify-between items-center mt-10'>
+      {/* <div className='flex justify-between items-center mt-10'>
         <h1 className='text-3xl my-8 '>BORROWED BOOK LIST</h1>
         
     </div>
@@ -160,7 +98,7 @@ const BooksTable = ({ books }) => {
             <th className='border border-slate-600 rounded-md'>Title</th>
             <th className='border border-slate-600 rounded-md max-md:hidden'>Author</th>
             <th className='border border-slate-600 rounded-md max-md:hidden'>Published Year</th>
-            {/* <th className='border border-slate-600 rounded-md'>Operations</th> */}
+            <th className='border border-slate-600 rounded-md'>Operations</th>
           </tr>
         </thead>
         <tbody>
@@ -170,7 +108,7 @@ const BooksTable = ({ books }) => {
               <td className='border border-slate-700 rounded-md text-center'>{bk.title}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.author}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{bk.publishedYear}</td>
-              {/* <td className='border border-slate-700 rounded-md text-center'>
+              <td className='border border-slate-700 rounded-md text-center'>
                 <div className='flex justify-center gap-x-4'>
                   <Link to={`/book/details/${bk._id}`}>
                     <BsInfoCircle className='text-2xl text-green-800' />
@@ -184,11 +122,11 @@ const BooksTable = ({ books }) => {
                   />
                   
                 </div>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
 
 
 
@@ -197,4 +135,4 @@ const BooksTable = ({ books }) => {
   );
 };
 
-export default BooksTable;
+export default BorrowedBook;

@@ -45,7 +45,7 @@ export default function SignIn({onClose}) {
     event.preventDefault();
 
     // const rfrsh = new FormData(event.currentTarget);
-    
+  const authurl = process.env.REACT_APP_AUTH_API
      
 const data = {
   email: email,
@@ -56,13 +56,15 @@ const data = {
       if(!email || !password){
         toast.error('Fill all details')
         return}
-        axios.post('http://localhost:3001/auth/book/login', data)
+        axios.post(`${authurl}/login`, data)
         .then((response)=>{
 
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('admin', response.data.admin);
+          
             toast.success('Login Successful')
             setTimeout(()=>{
-                navigation('/Home')
+                navigation('/Admin')
             }, 2000)
         })
         .catch((error)=>{

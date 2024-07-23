@@ -6,82 +6,32 @@ import {BsInfoCircle} from 'react-icons/bs'
 import {MdOutlineAddBox, MdOutlineDelete} from 'react-icons/md'
 import { Link, Navigate } from 'react-router-dom'
 import BooksCard from './home/Bookscard'
-import UserTable from './home/UserTable'
+
 import Footer from './Footer/Footer';
 import Navbar2 from './navbar2'
 import './navbar.css'
-import { ToastContainer, toast } from 'react-toastify';
+import AdminTable from './home/AdminTable'
 
 import R from '../assets/R.png';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import BackButton from './elements/BackButton'
-import { BiBookmarks } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 
-
-const Home = () => {
+const Adminhome = () => {
 
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false)
     const [showType, setShowType] = useState('table')
-    const [load, setLoad] = useState([])
     // const [showCard, setShowCard] = useState('card')
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
-    const surl = process.env.REACT_APP_SELECT_URL;
-
-    
+    const geturl = process.env.REACT_APP_GET_BOOK
 
     useEffect(()=>{
-        if(!token){
-            toast.error('Authorization required')
-            return;
-        }
-        const headers = {
-            Authorization: `Bearer ${token}`
-        }
         setLoading(true)
-        Axios.get(`${surl}/select`, {headers})
+        Axios.get(`${geturl}`)
         .then((res)=>{
-            // const a = res.data.data.books
-            const booksArrays = res.data.data;
-            let combinedArray = [];
-            combinedArray = combinedArray.concat(booksArrays)
+            setBooks(res.data.data)
             
-            
-            
-                        
-            
-            setBooks(combinedArray)
-
-  // Iterate through each array of books
-            // booksArrays.forEach((booksArray, index) => {
-            // // console.log(`Books Array ${index + 1}:`, booksArray);
-            // })
-            // booksArrays.map((booksArray, index) =>{
-            //     // console.log(`Books:`, booksArray.books);
-            //     const kk = (`Books:`, booksArray.books)
-            //     let combinedArray = [];
-
-            //     kk.forEach(books => {
-            //         // Concatenate the current array with the combinedArray
-            //         combinedArray = combinedArray.concat(booksArrays);
-            //         // Alternatively, you can use the spread operator:
-            //         // combinedArray = [...combinedArray, ...array];
-            //       });
-            
-            //     //   return combinedArray;
-                
-            //     //   setBooks(combinedArray)
-            //       console.log(combinedArray, 'com')
-            // })
-            
-           
-            
-            
-           
-            
-                    
              setLoading(false)
         }).catch((error)=>{
             console.log(error)
@@ -119,12 +69,24 @@ const Home = () => {
         <br></br>
     <div className='flex justify-between items-center'>
         <h1 className='text-3xl my-8 '>BOOK LIST</h1>
-        <BackButton/>
+        <Link to='/book/create'>
+        <MdOutlineAddBox className='text-sky-800 text-4xl'/>
+        </Link>
         
     </div>
     {
-        loading ? <Spinner/>: showType === "table" ? (<UserTable books={books}/>) : (<BooksCard books={books}/>)           
+        loading ? <Spinner/>: showType === "table" ? (<AdminTable books={books}/>) : (<BooksCard books={books}/>)           
     }
+
+
+
+
+   
+   
+
+
+
+    
     <div className=' fixed bottom-0 w-full'>
         <Footer/>
     </div>
@@ -134,4 +96,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Adminhome

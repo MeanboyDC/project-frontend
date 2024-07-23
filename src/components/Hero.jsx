@@ -4,9 +4,19 @@ import bg from '../assets/Stockholm-Public-Library-Alamy.png'
 
 const Hero = () => {
   return (
+    <div className='divv'>
+        
     <div className='hero'>
-        <img src={bg} className='w-full min-w-24 bg-gradient-to-br bg-cover ease-linear opacity-100'/>
+      
+      <div className='hero-text'>
+        <div className='absolute text-center align-middle justify-center sm:text-wrap'>
+      <h1 className='title'>BOOK UNIVERSE</h1>
+      
+      </div>
+      </div>
 
+        
+    </div>
     </div>
   )
 }

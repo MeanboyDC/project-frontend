@@ -9,7 +9,10 @@ import Login from './components/authcomponent/Login.js';
 import Signup from './components/authcomponent/Signup.js';
 import Homepage from './Homepage.js';
 import PrivateRoute from './components/authcomponent/PrivateRoute.js';
+import AdminRoute from './components/authcomponent/AdminRoute.js';
 
+import UserHome from './components/UserHome.js'
+import Adminhome from './components/Adminhome';
 
 function App () {
   return(
@@ -18,15 +21,23 @@ function App () {
   <Route path='/' element={<Homepage/>}/>
   <Route path='/login' element={<Login/>}/>
   <Route path='/register' element={<Signup/>}/>
+
+
  
 
   {/* Private route */}
   <Route element={<PrivateRoute/>}>
-  <Route path='/home' element={<Home/>}/>
+
+  {/* ADMIN ROUTE */}
+  <Route element={<AdminRoute/>}>
   <Route path='/book/create' element={<CreateBooks/>}/>
-  <Route path='/book/details/:id' element={<ShowBook/>}/>
   <Route path='/book/edit/:id' element={<EditBook/>}/>
   <Route path='/book/delete/:id' element={<DeleteBook/>}/>
+  <Route path='/Admin' element={<Adminhome/>}/>
+  </Route>
+  <Route path='/home' element={<Home/>}/>
+  <Route path='/book/details/:id' element={<ShowBook/>}/>
+  <Route path='/books' element={<UserHome/>}/>
   </Route>
 
 </Routes>

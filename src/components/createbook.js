@@ -14,7 +14,7 @@ const CreateBooks = () => {
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
-  const bookurl = process.env.REACT_APP_API_URL
+  const geturl = process.env.REACT_APP_GET_BOOK
 
   const handleSaveBook = () => {
     if(!title || !author || !publishedYear){
@@ -29,12 +29,12 @@ const CreateBooks = () => {
     } 
     setLoading(true)
 
-    axios.post('http://localhost:3001/api/book/', data)
+    axios.post(`${geturl}`, data)
     .then(()=>{
       setLoading(false)
       toast.success("Book Added Successfully")
       setTimeout(()=>{
-        navigate('/Home')
+        navigate('/admin')
       }, 3000)
       
     }).catch((error)=>{
