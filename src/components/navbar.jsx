@@ -8,7 +8,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 
-const navbar = () =>{
+const Navbar = () => {
   
   const [login, setLogin] =  useState(false);
   const [register, setRegister] = useState(false)
@@ -31,4 +31,4 @@ const navbar = () =>{
   )
 }
 
-export default navbar
+export default Navbar
