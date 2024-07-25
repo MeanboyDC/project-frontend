@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
-import { MdOutlineDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,9 +9,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 const BooksTable = ({ books }) => {
@@ -32,18 +28,7 @@ const BooksTable = ({ books }) => {
     Authorization: `Bearer ${token}`
   };
 
-  const setDeleteBook = (id) => {
-    axios
-      .delete(`${geturl}/${id}`)
-      .then(() => {
-        toast.success('Deleted Successfully');
-        // Remove the deleted book from the state
-        setBooksData((prevBooks) => prevBooks.filter((book) => book._id !== id));
-      })
-      .catch((error) => {
-        toast.error('Error', error);
-      });
-  };
+  
   
   const bookchecked = (book) => {
     setBr(prevState =>{

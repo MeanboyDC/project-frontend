@@ -1,9 +1,6 @@
 import React from 'react'
 import { AiOutlineEdit } from 'react-icons/ai'
-import { BsInfoCircle } from 'react-icons/bs'
-import { BiUserCircle, BiShow } from 'react-icons/bi'
-import { MdOutlineDelete } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { BiUserCircle } from 'react-icons/bi'
 import { PiBookOpenTextLight } from 'react-icons/pi'
 
 const BookModal = ({ book, onClose }) => {

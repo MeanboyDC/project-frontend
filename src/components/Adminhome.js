@@ -1,14 +1,13 @@
 import React, { useState, useEffect} from 'react'
 import Axios from 'axios'
 import Spinner from './elements/Spinner'
-import {AiOutlineEdit} from 'react-icons/ai'
-import {BsInfoCircle} from 'react-icons/bs'
-import {MdOutlineAddBox, MdOutlineDelete} from 'react-icons/md'
-import { Link, Navigate } from 'react-router-dom'
+
+import {MdOutlineAddBox} from 'react-icons/md'
+import { Link} from 'react-router-dom'
 import BooksCard from './home/Bookscard'
 
 import Footer from './Footer/Footer';
-import Navbar2 from './navbar2'
+
 import './navbar.css'
 import AdminTable from './home/AdminTable'
 
@@ -22,7 +21,7 @@ const Adminhome = () => {
     const [loading, setLoading] = useState(false)
     const [showType, setShowType] = useState('table')
     
-    const token = localStorage.getItem('token')
+    
     const navigate = useNavigate()
     const geturl = process.env.REACT_APP_GET_BOOK
 

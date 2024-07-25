@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import BackButton from './elements/BackButton'
-import Spinner from './elements/Spinner'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast} from 'react-toastify'
