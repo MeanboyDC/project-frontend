@@ -49,17 +49,17 @@ const Home = () => {
         <nav id='container'>
         <img src={R} alt='' className='logo'/>
         <div className='flex justify-center items-center gap-x-4'>
-        <button className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+        <button className='bg-blue-600 hover:bg-gray-600 px-4 py-1 rounded-lg'
         onClick={()=>setShowType('table')}
         >
             Table
         </button>
-        <button className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+        <button className='bg-blue-600 hover:bg-gray-600 px-4 py-1 rounded-lg'
         onClick={()=>setShowType('card')}>
             Card
         </button>
         <Link onClick={handleLogout}>
-        <ExitToAppIcon className='text-blue-300 text-8xl'/>
+        <ExitToAppIcon className='text-blue-500 text-8xl'/>
         </Link>
 
         </div>
